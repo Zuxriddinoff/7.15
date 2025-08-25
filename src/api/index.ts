@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "https://shoping-469710.el.r.appspot.com/"
+    baseURL: "http://localhost:5555/users/"
 })
 
 

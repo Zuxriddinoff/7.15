@@ -20,10 +20,8 @@ const Register = () => {
       const {name, email, password} = values
       const user = {
         full_name:name,
-        phone:"+998913607434",
         email,
         password,
-        region:"Namangan"
       }
         createUser.mutate(user, {
             onSuccess: () => {

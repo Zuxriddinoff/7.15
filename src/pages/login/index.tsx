@@ -1,7 +1,7 @@
 import { Button, Form, Input, type FormProps } from "antd";
 import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 import type { RootState } from "../../lib";
 import { useUser } from "../../api/hooks/useUser";
 import { clearSignInData } from "../../lib/signinSlice";
@@ -23,9 +23,9 @@ const Login = () => {
     
     const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
         signIn.mutate(values, {
-          onSuccess:(res) => {
+          onSuccess:(res) => {            
             dispatch(clearSignInData())
-            dispatch(setToken({access_token: res?.data?.accsestoken, refresh_token:res?.data?.refreshtoken}))
+            dispatch(setToken({access_token: res?.data.data}))
             navigate("/profile")
           }
         })
